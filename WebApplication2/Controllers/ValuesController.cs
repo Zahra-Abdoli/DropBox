@@ -75,7 +75,8 @@ namespace WebApplication2.Controllers
 
             //get Blob reference
 
-            CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(imageName); cloudBlockBlob.Properties.ContentType = imageToUpload.ContentType;
+            CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(imageName); 
+            cloudBlockBlob.Properties.ContentType = imageToUpload.ContentType;
 
             await cloudBlockBlob.UploadFromStreamAsync(imageToUpload.InputStream);
         }
