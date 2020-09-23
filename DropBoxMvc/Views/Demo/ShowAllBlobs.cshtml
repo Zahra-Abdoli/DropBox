@@ -1,0 +1,30 @@
+﻿@model List<DropBoxMvc.Models.FileData>
+@{
+    ViewData["Title"] = "ShowAllBlobs";
+}
+
+<h1>ShowAllBlobs</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>ModifiedOn</th>
+            <th>Download</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td>@data.FileName</td>
+                <td>@data.FileSize</td>
+                <td>@data.ModifiedOn</td>
+                <td> <a href="/Demo/Download?blobName=@data.FileName">Download</a> </td>
+             
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Demo/Create" class="btn btn-danger">Upload</a>
