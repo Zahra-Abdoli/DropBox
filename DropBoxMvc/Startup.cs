@@ -50,7 +50,7 @@ namespace DropBoxMvc
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Demo}/{action=ShowAllBlobs}/{id?}");
+                    pattern: "{controller=Demo}/{action=List}/{id?}");
             });
         }
     }

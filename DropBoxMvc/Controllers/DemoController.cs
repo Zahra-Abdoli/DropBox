@@ -21,14 +21,14 @@ namespace DropBoxMvc.Controllers
             _configuration = configuration;
         }
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Upload()
         {
             return View();
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(IFormFile files)
+        public async Task<IActionResult> Upload(IFormFile files)
         {
             string blobstorageconnection = _configuration.GetValue<string>("blobstorage");
 
@@ -75,7 +75,7 @@ namespace DropBoxMvc.Controllers
             }
             return View("Create");
         }
-        public async Task<IActionResult> ShowAllBlobs()
+        public async Task<IActionResult> List()
         {
             string blobstorageconnection = _configuration.GetValue<string>("blobstorage");
             CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(blobstorageconnection);

@@ -1,0 +1,22 @@
+﻿@model List<DropBoxMvc.Models.FileData>
+@{
+    ViewData["Title"] = "List";
+}
+
+<table class="table table-bordered">
+
+    <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td> <a class="btn btn-secondary" href="/Demo/Download?blobName=@data.FileName">Download</a> </td>
+                <td>@data.ModifiedOn</td>
+                <td>@data.FileName</td>
+                <td>@data.FileSize</td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+<a class="btn btn-danger" href="/Demo/Upload">Upload new</a>
